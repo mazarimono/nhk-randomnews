@@ -1,8 +1,13 @@
 from dash import Dash, html, Input, Output
+import dash_bootstrap_components as dbc
 import requests
 
 
-app = Dash("__name__")
+app = Dash("__name__",
+           external_stylesheets=[dbc.themes.CYBORG],
+           meta_tags=[
+        {"name": "viewport", "content": "width=device-width, initial-scale=1"},
+    ],)
 server = app.server
 
 
@@ -10,16 +15,17 @@ app.layout = html.Div(
     [
         html.Div(
             [
+                html.H1('おススメNHK防災コンテンツ', style={'padding': 10}),
                 html.H3(id="selected_title"),
                 html.A(id="selected_link"),
             ]
         ),
         html.Div(
-            [html.Button(id="update_button", children="ニュース更新ボタン", n_clicks=1)],
+            [dbc.Button(id="update_button", children="ニュース更新ボタン", n_clicks=1)],
             style={"padding": 30},
         ),
     ],
-    style={"textAlign": "center"},
+    style={"textAlign": "center", 'padding': 10},
 )
 
 
