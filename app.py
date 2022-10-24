@@ -3,6 +3,7 @@ import requests
 
 
 app = Dash('__name__')
+server = app.server
 
 r= requests.get('https://nhk-hackathon.herokuapp.com/random_news')
 
