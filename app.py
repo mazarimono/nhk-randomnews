@@ -53,7 +53,7 @@ app.layout = html.Div(
 )
 def update_news(n_clicks):
     if n_clicks > 0:
-        r = requests.get("https://nhk-hackathon.herokuapp.com/random_news")
+        r = requests.get("https://nhk-hackathon.herokuapp.com/api/v0/news/random_news")
         news_title = r.json()["news_title"]
         news_url = r.json()["news_url"]
         return news_title, news_url, news_url
